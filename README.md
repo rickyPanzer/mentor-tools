@@ -17,6 +17,6 @@ python -i quickstart.py
 main()
 ```
 
-Wollah!
+Voilà!
 
 5) this was built in a couple days, so please report any bugs, feature requests, etc.
