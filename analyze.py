@@ -68,6 +68,7 @@ def get_students():
             user_progress_info_link = student.query_for_checkpoints()
             
             student.query_for_progress()
+
             student.calculate_appts()
 
             # student.print_details()
@@ -202,13 +203,14 @@ class Student:
         # https://www.bloc.io/api/v1/roadmaps/10/progress/2302061
 
     def query_for_progress(self):
-        # print self.progress_url
+        print self.name
         r = requests.get(self.progress_url, headers=headers, cookies=cookies)
         json = r.json()
-        next_appt_date_string = json['mentor']['next_appointment_date'].encode('ascii')
+        if 'next_appointment_date' in json['mentor']:
+            next_appt_date_string = json['mentor']['next_appointment_date'].encode('ascii')
+            self.next_appt_date = stringToLocalDate(next_appt_date_string)
 
-        self.next_appt_date = stringToLocalDate(next_appt_date_string)
-
+        # if 'course_end_date' in json['mentor']: 
         course_end_date_string = json['course_end_date'].encode('ascii')
         self.course_end_date = stringToLocalDate(course_end_date_string)
 
