@@ -10,7 +10,8 @@ This was made in a couple days, so there is SO MUCH that can be improved with th
 1. make a contants.py file in the main directory of the project
 2. create two variables called headers and cookies
 3. assign headers and cookies to the headers and cookies when logged in at https://bloc.io
-4. in the main directory run
+4. follow these directions to get the client_secret.json file for the Google Calendar API, which you will insert in the root directory https://developers.google.com/google-apps/calendar/quickstart/python
+5. in the main directory run
 ```
 python -i quickstart.py
 
